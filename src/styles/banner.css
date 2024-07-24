@@ -1,0 +1,85 @@
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 50px;
+    width: 1440px;
+    height: 91px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background: #020203;
+
+
+}
+
+.banner-logo {
+    height: 100%;
+}
+
+.banner a {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: white;
+
+}
+
+
+.vertical-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 270px;
+    background: #020203;
+    padding: 10px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.vertical-banner {
+    width: 117px;
+    height: 1024px;
+
+}
+
+.vertical-banner p {
+    top: 965px;
+    left: 42px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    color: white;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+
+}
+.menuVerticalContent{
+    display:flex;
+    flex-direction: column;
+    gap:30px;
+}
+.cardNavLeft {
+    background-color: white;
+    color: #FF0101;
+    width: 64px;
+    height: 64px;
+    width: 64px;
+    border-radius: 6px;
+
+}
+
+.icones {
+    width: 32px;
+    height: 32px;
+    top: 16px;
+    left: 16px;
+    gap: 0px;
+    opacity: 0px;
+
+}
