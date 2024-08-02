@@ -4,18 +4,24 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Banner from './components/Banner'
 import DataFetcher from './components/DataFetcher'
+import Card from './components/Card'
+import Chart from './components/Chart'
+import ActivityChart from './components/BarChart'
+
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Banner className="banner"/>
-    <Banner className="vertical-banner"/>
+      <Banner className="banner" />
+      <Banner className="vertical-banner" />
       <div>
-
-      <DataFetcher />
-
+        <Chart />
+        <ActivityChart />
+        <DataFetcher />
+        <Card />
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>

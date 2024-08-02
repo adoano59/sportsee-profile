@@ -12,7 +12,8 @@ const DataFetcher = () => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = await response.text();
+        const data = await response.json();
+        console.log(data);
         setData(data);
       } catch (error) {
         setError(error);
@@ -29,8 +30,7 @@ const DataFetcher = () => {
 
   return (
     <div>
-      <h1>Bonjour</h1>
-      <pre>{data}</pre>
+      <h1>Bonjour</h1><pre>{data.firstName}</pre>
     </div>
   );
 };
