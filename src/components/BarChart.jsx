@@ -30,8 +30,8 @@ export default function ActivityChart() {
 
     return (
       <BarChart
-      width={500}
-      height={300}
+      width={835}
+      height={320}
       data={data.data.sessions}
       margin={{
         top: 5,
@@ -45,8 +45,8 @@ export default function ActivityChart() {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="kilogram" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-      <Bar dataKey="calories" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+      <Bar dataKey="kilogram" fill="black" activeBar={<Rectangle fill="black" stroke="black" />} />
+      <Bar dataKey="calories" fill="red" activeBar={<Rectangle fill="red" stroke="red" />} />
     </BarChart>
     );
   }

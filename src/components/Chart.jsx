@@ -17,7 +17,6 @@ export default function Chart() {
         }
         const data = await response.json();
         data.data.sessions.map((e) => e.day = days[e.day - 1])
-        console.log(data);
         setData(data);
       } catch (error) {
         setError(error);
@@ -34,8 +33,8 @@ export default function Chart() {
 
     return (
         <LineChart
-          width={500}
-          height={300}
+          width={283}
+          height={263}
           data={data.data.sessions}
           margin={{
             top: 5,
@@ -49,7 +48,7 @@ export default function Chart() {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="sessionLength" stroke="#FF0000" activeDot={{ r: 8 }} />
         </LineChart>
     );
   }

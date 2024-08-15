@@ -1,0 +1,40 @@
+.fire {
+    color: #FF0000;
+    background-color: #fee8e8;
+}
+
+.chiken {
+    background-color: #e5f3fd;
+    color: #4AB8FF;
+}
+
+.apple {
+    color: #FDCC0C;
+    background-color: #faf6e2;
+
+}
+
+.burger {
+    color: #FD5181;
+
+    background-color: #ffe7ee;
+}
+
+.cardNav {
+    width: 60px;
+    height: 60px;
+    top: 32px;
+    left: 32px;
+}
+.menuRight{
+    display:flex;
+    flex-direction: column;
+    gap:30px;
+}
+.menuRight a {
+    width: 258px;
+    height: 124px;
+    top: 325px;
+    left: 1092px;
+
+}
