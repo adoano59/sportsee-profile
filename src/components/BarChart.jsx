@@ -29,8 +29,10 @@ export default function ActivityChart() {
   if (error) return <div>Error: {error.message}</div>;
 
     return (
+      <div className='title'>
+        <p>Activité quotidienne</p>
       <BarChart
-      width={835}
+      width={853}
       height={320}
       data={data.data.sessions}
       margin={{
@@ -40,13 +42,15 @@ export default function ActivityChart() {
         bottom: 5,
       }}
     >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="day" />
-      <YAxis />
+      
+      <Legend verticalAlign="top" align="right" iconType="circle" formatter={(value) => <span style={{ color: '#74798C' }}>{value}</span>}/>
+      <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
+      <XAxis dataKey="day" tickLine={false} tickFormatter={(value, index) => index + 1} />
+      <YAxis orientation='right'/>
       <Tooltip />
-      <Legend />
-      <Bar dataKey="kilogram" fill="black" activeBar={<Rectangle fill="black" stroke="black" />} />
-      <Bar dataKey="calories" fill="red" activeBar={<Rectangle fill="red" stroke="red" />} />
+      <Bar dataKey="kilogram" name="Poids (kg)" fill="black"  barSize={7} activeBar={<Rectangle fill="black" stroke="black" />} />
+      <Bar dataKey="calories" name="Calories brûlées (kCal)" barSize={7} fill="red" activeBar={<Rectangle fill="red" stroke="red" />} />
     </BarChart>
+    </div>
     );
   }

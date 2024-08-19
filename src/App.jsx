@@ -9,8 +9,6 @@ import PerformanceChart from './components/RadarChart'
 import TodayScore from './components/TodayScore'
 
 
-
-
 function App() {
   const [count, setCount] = useState(0)
 
@@ -27,9 +25,10 @@ function App() {
        
         <ActivityChart />
         <div className='boxContent3'>
-        <Chart />
-        <PerformanceChart />
-        <TodayScore />
+       <div className='box1'> <Chart /></div>
+       <div className='box2'><PerformanceChart /></div>
+       <div className='box3'><TodayScore /></div>
+    
         </div>
       </div>
       <div className='boxContent4'>

@@ -12,9 +12,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -23,18 +25,21 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-.boxContent{
+
+.boxContent {
   display: flex;
   width: 100%;
   position: relative;
   top: -950px;
   left: 160px;
 }
-.boxContent1{
+
+.boxContent1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -42,25 +47,65 @@
   top: -1000px;
   left: 200px;
 }
-.boxContent2{
+
+.boxContent2 {
   display: flex;
   flex-direction: column;
+  width: 70%;
+  gap:50px
+}
 
-  width:70%;
+.boxContent3 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 263px;
 }
-.boxContent3{
-  display:flex;
+
+.box1 {
+  background-color: #FF0000;
+  color: white;
 }
-.boxContent4{
+.box2{
+  background: #282D30;
+  box-shadow: 0px 2px 4px 0px #00000005;
+  color: white;
+
+  font-family: Roboto;
+font-size: 12px;
+font-weight: 500;
+line-height: 24px;
+text-align: center;
+
+}
+
+.boxContent4 {
   width: 30%;
 }
-.userContent{
+
+.userContent {
   display: flex;
   gap: 20px;
 
 }
-.userName{
-  color:red;
+
+.userName {
+  color: red;
+}
+
+.title p {
+  width: 147px;
+  height: 48px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  padding-left: 30px;
+
+}
+.recharts-legend-wrapper{
+  top: -60px !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {

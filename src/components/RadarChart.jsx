@@ -32,10 +32,17 @@ export default function PerformanceChart() {
     return (
       <RadarChart  
       width={283}
-      height={263} data={data.data.data}>
-          <PolarGrid />
+      height={263}
+      data={data.data.data}
+      margin={{
+        top: 5,
+        right: 50,
+        left: 20,
+        bottom: 5,
+      }}>
+          <PolarGrid radialLines={false}/>
           <PolarAngleAxis dataKey="kind" />
-          <PolarRadiusAxis />
+          <PolarRadiusAxis tick={false} axisLine={false}/>
           <Radar name="radar"  dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
         </RadarChart>
     );

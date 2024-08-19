@@ -19,22 +19,55 @@
 
     background-color: #ffe7ee;
 }
-
+.fire, .chiken, .apple, .burger{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .cardNav {
     width: 60px;
     height: 60px;
     top: 32px;
     left: 32px;
 }
-.menuRight{
-    display:flex;
+
+.menuRight {
+    display: flex;
     flex-direction: column;
-    gap:30px;
+    gap: 75px;
+    padding: 20px;
 }
+
 .menuRight a {
     width: 258px;
     height: 124px;
     top: 325px;
     left: 1092px;
 
+}
+
+.textData {
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    color: #282D30;
+
+}
+
+.nameData {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: #74798C;
+
+
+}
+.boxCard{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
