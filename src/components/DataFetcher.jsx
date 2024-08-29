@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
-const DataFetcher = () => {
+import { getProfil } from '../services/api';
+const DataFetcher = (props) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,11 +8,7 @@ const DataFetcher = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/user/12');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+        const data = await getProfil(props.userid);
         setData(data);
       } catch (error) {
         setError(error);

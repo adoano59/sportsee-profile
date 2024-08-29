@@ -121,3 +121,7 @@ text-align: center;
 .read-the-docs {
   color: #888;
 }
+.valueTooltip{
+  padding: 20px;
+  font-size: 7px;
+}

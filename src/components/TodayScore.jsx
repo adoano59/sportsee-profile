@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Sector } from 'recharts';
+import { getTodayScore } from '../services/api';
 
-function TodayScores() {
+const TodayScores = (props) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,12 +10,15 @@ function TodayScores() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/user/12');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await getTodayScore(props.userid);
+        
+        // Correction de la condition pour choisir le bon score
+        let todayScore;
+        if (data.data.todayScore) {
+          todayScore = data.data.todayScore;
+        } else {
+          todayScore = data.data.score;
         }
-        const jsonData = await response.json();
-        const todayScore = jsonData.data.todayScore;
         const value = todayScore * 100;
         const chartData = [
           { name: 'Score', value: value },
@@ -35,6 +39,7 @@ function TodayScores() {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
+    <div style={{ backgroundColor: '#FBFBFB'}}>
     <PieChart width={283} height={263}>
       <Pie
         activeIndex={0}
@@ -49,6 +54,7 @@ function TodayScores() {
         dataKey="value"
       />
     </PieChart>
+    </div>
   );
 }
 
@@ -60,10 +66,10 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text x={cx} y={cy} dy={0} textAnchor="middle" fill="black">
+      <text x={cx} y={cy} dy={0} textAnchor="middle" fill="black" fontSize="26" fontWeight="bold">
         {value}%
       </text>
-      <text x={cx} y={cy} dy={15} textAnchor="middle" fill="black">
+      <text x={cx} y={cy} dy={25} textAnchor="middle" fill="grey" fontSize="16">
         de votre objectif
       </text>
       <Sector

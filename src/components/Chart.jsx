@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Rectangle, ResponsiveContainer } from 'recharts';
-
+import { getAverageSession } from '../services/api';
 const days = ["L", "M", "M", "J", "V", "S", "D"]
 const CustomLegend = () => {
   return <span style={{ color: '#FFFFFF' }}>Durée moyenne des sessions</span>;
@@ -19,7 +19,7 @@ const CustomCursor = (props) => {
     />
   );
 };
-export default function Chart() {
+const Chart = (props) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,11 +27,7 @@ export default function Chart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/user/12/average-sessions');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+        const data = await getAverageSession(props.userid);
         data.data.sessions.map((e) => e.day = days[e.day - 1])
         setData(data);
       } catch (error) {
@@ -88,3 +84,4 @@ export default function Chart() {
 </LineChart>
     );
   }
+export default Chart;

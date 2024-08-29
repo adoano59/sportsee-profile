@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { getPerformance } from '../services/api';
 
-export default function PerformanceChart() {
+const PerformanceChart = (props) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,11 +10,7 @@ export default function PerformanceChart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/user/12/performance');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+        const data = await getPerformance(props.userid);
         data.data.data.map((e) => e.kind = data.data.kind[e.kind])
         setData(data);
       } catch (error) {
@@ -47,3 +44,4 @@ export default function PerformanceChart() {
         </RadarChart>
     );
   }
+export default PerformanceChart;

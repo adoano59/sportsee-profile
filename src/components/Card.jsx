@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import "../styles/card.css"
 import { faFire, faDrumstickBite, faAppleWhole, faBurger } from '@fortawesome/free-solid-svg-icons';
 import IconMenu from './Icone';
-function Card() {
+import { getCard } from '../services/api';
+const Card = (props) =>  {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,11 +11,7 @@ function Card() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/user/12');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+        const data = await getCard(props.userid);
         setData(data);
       } catch (error) {
         setError(error);

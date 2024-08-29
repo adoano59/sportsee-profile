@@ -70,4 +70,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
+   background-color: #FBFBFB;
+   padding: 20px;
 }
