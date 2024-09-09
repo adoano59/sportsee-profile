@@ -11,14 +11,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />
-     
+
   },
   {
     path: "/:userid",
     element: <App />
-     
+
   },
-  
+
 ]);
 
 createRoot(document.getElementById("root")).render(

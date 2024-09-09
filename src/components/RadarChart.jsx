@@ -26,8 +26,8 @@ const PerformanceChart = (props) => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-    return (
-      <RadarChart  
+  return (
+    <RadarChart
       width={283}
       height={263}
       data={data.data.data}
@@ -37,11 +37,11 @@ const PerformanceChart = (props) => {
         left: 20,
         bottom: 5,
       }}>
-          <PolarGrid radialLines={false}/>
-          <PolarAngleAxis dataKey="kind" />
-          <PolarRadiusAxis tick={false} axisLine={false}/>
-          <Radar name="radar"  dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
-        </RadarChart>
-    );
-  }
+      <PolarGrid radialLines={false} />
+      <PolarAngleAxis dataKey="kind" />
+      <PolarRadiusAxis tick={false} axisLine={false} />
+      <Radar name="radar" dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.6} />
+    </RadarChart>
+  );
+}
 export default PerformanceChart;

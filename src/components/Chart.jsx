@@ -43,45 +43,45 @@ const Chart = (props) => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-    return (
-        <LineChart
-  width={283}
-  height={263}
-  data={data.data.sessions}
-  margin={{
-    top: 5,
-    right: 50,
-    left: 30,
-    bottom: 5,
-  }}
->
- 
+  return (
+    <LineChart
+      width={283}
+      height={263}
+      data={data.data.sessions}
+      margin={{
+        top: 5,
+        right: 50,
+        left: 30,
+        bottom: 5,
+      }}
+    >
 
-  <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#FFFFFF' }}   />
-  <YAxis hide={true} padding={{ top: 40, bottom: 10 }} />
-  <Legend 
-  wrapperStyle={{ marginTop: '75px' }}
-  verticalAlign="top" 
-  align="left"
-  content={<CustomLegend />}
-/>
-  <Tooltip 
-  
-    content={({ payload }) => {
-      if (payload && payload.length) {
-        return (
-          <div style={{ backgroundColor: '#fff', color: '#000', padding: '5px', borderRadius: '5px' }}>
-            {payload[0].value}
-          </div>
-        );
-      }
-      return null;
-    }}
-    wrapperStyle={{ outline: 'none' }}  // Supprime les bordures du Tooltip
-    cursor={<CustomCursor />}
-  />  
-<Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF" activeDot={{ r: 8 }} />
-</LineChart>
-    );
-  }
+
+      <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#FFFFFF' }} />
+      <YAxis hide={true} padding={{ top: 40, bottom: 10 }} />
+      <Legend
+        wrapperStyle={{ marginTop: '75px' }}
+        verticalAlign="top"
+        align="left"
+        content={<CustomLegend />}
+      />
+      <Tooltip
+
+        content={({ payload }) => {
+          if (payload && payload.length) {
+            return (
+              <div style={{ backgroundColor: '#fff', color: '#000', padding: '5px', borderRadius: '5px' }}>
+                {payload[0].value}
+              </div>
+            );
+          }
+          return null;
+        }}
+        wrapperStyle={{ outline: 'none' }}  // Supprime les bordures du Tooltip
+        cursor={<CustomCursor />}
+      />
+      <Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF" activeDot={{ r: 8 }} />
+    </LineChart>
+  );
+}
 export default Chart;

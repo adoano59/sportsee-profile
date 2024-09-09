@@ -59,11 +59,13 @@
     text-align: left;
 
 }
-.menuVerticalContent{
-    display:flex;
+
+.menuVerticalContent {
+    display: flex;
     flex-direction: column;
-    gap:30px;
+    gap: 30px;
 }
+
 .cardNavLeft {
     display: flex;
     justify-content: center;

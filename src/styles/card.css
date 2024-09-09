@@ -19,11 +19,16 @@
 
     background-color: #ffe7ee;
 }
-.fire, .chiken, .apple, .burger{
+
+.fire,
+.chiken,
+.apple,
+.burger {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .cardNav {
     width: 60px;
     height: 60px;
@@ -36,6 +41,7 @@
     flex-direction: column;
     gap: 75px;
     padding: 20px;
+    padding-left: 100px;
 }
 
 .menuRight a {
@@ -66,10 +72,11 @@
 
 
 }
-.boxCard{
+
+.boxCard {
     display: flex;
     align-items: center;
     gap: 10px;
-   background-color: #FBFBFB;
-   padding: 20px;
+    background-color: #FBFBFB;
+    padding: 20px;
 }

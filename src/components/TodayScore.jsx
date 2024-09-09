@@ -11,7 +11,7 @@ const TodayScores = (props) => {
     const fetchData = async () => {
       try {
         const data = await getTodayScore(props.userid);
-        
+
         // Correction de la condition pour choisir le bon score
         let todayScore;
         if (data.data.todayScore) {
@@ -39,21 +39,21 @@ const TodayScores = (props) => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div style={{ backgroundColor: '#FBFBFB'}}>
-    <PieChart width={283} height={263}>
-      <Pie
-        activeIndex={0}
-        activeShape={renderActiveShape}
-        data={data}
-        cx="50%"
-        cy="50%"
-        innerRadius={70}
-        outerRadius={80}
-        fill="white"
-        startAngle={90}
-        dataKey="value"
-      />
-    </PieChart>
+    <div style={{ backgroundColor: '#FBFBFB' }}>
+      <PieChart width={283} height={263}>
+        <Pie
+          activeIndex={0}
+          activeShape={renderActiveShape}
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={70}
+          outerRadius={80}
+          fill="white"
+          startAngle={90}
+          dataKey="value"
+        />
+      </PieChart>
     </div>
   );
 }

@@ -26,8 +26,8 @@ const DataFetcher = (props) => {
   return (
     <div>
       <div className='userContent'>
-      <h1>Bonjour</h1>
-      <h1 className='userName'>{data.data.userInfos.firstName}</h1>
+        <h1>Bonjour</h1>
+        <h1 className='userName'>{data.data.userInfos.firstName}</h1>
       </div>
       <div>Félicitation ! Vous avez explosé vos objectifs hier 👏</div>
     </div>
