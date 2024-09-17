@@ -57,13 +57,11 @@ const TodayScores = (props) => {
     </div>
   );
 }
-
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, value } = props;
   const cos = Math.cos(-RADIAN * midAngle);
   const textAnchor = cos >= 0 ? 'start' : 'end';
-
   return (
     <g>
       <text x={cx} y={cy} dy={0} textAnchor="middle" fill="black" fontSize="26" fontWeight="bold">

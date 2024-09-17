@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Rectangle, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, Rectangle } from 'recharts';
 import { getAverageSession } from '../services/api';
 const days = ["L", "M", "M", "J", "V", "S", "D"]
 const CustomLegend = () => {
@@ -55,8 +55,6 @@ const Chart = (props) => {
         bottom: 5,
       }}
     >
-
-
       <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#FFFFFF' }} />
       <YAxis hide={true} padding={{ top: 40, bottom: 10 }} />
       <Legend
@@ -66,7 +64,6 @@ const Chart = (props) => {
         content={<CustomLegend />}
       />
       <Tooltip
-
         content={({ payload }) => {
           if (payload && payload.length) {
             return (
