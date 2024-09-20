@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import { getPerformance } from '../services/api';
-import modelisation from '../models/model1';
+import modelisation from '../models/model';
 
 const PerformanceChart = (props) => {
   const [data, setData] = useState(null);

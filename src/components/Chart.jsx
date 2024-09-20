@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, Rectangle } from 'recharts';
 import { getAverageSession } from '../services/api';
-import modelisation from '../models/model1';
+import modelisation from '../models/model';
 const CustomLegend = () => {
   return <span style={{ color: '#FFFFFF' }}>Durée moyenne des sessions</span>;
 };

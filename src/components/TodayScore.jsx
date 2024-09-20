@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'; 
-import modelisation from '../models/model1';
+import modelisation from '../models/model';
 import { PieChart, Pie, Sector } from 'recharts';
 import { getTodayScore } from '../services/api';
 

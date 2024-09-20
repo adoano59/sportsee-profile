@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { getActivity } from '../services/api';
-import modelisation from '../models/model1';
+import modelisation from '../models/model';
 import "../App.css"
 
 const ActivityChart = (props) => {
