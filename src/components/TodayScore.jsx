@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
+import modelisation from '../models/model1';
 import { PieChart, Pie, Sector } from 'recharts';
 import { getTodayScore } from '../services/api';
 
@@ -10,20 +11,13 @@ const TodayScores = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getTodayScore(props.userid);
-
-        // Correction de la condition pour choisir le bon score
-        let todayScore;
-        if (data.data.todayScore) {
-          todayScore = data.data.todayScore;
-        } else {
-          todayScore = data.data.score;
-        }
-        const value = todayScore * 100;
-        const chartData = [
-          { name: 'Score', value: value },
-          { name: 'AntiScore', value: 100 - value }
-        ];
+        // Appel de l'API pour récupérer les données utilisateur
+        const responseData = await getTodayScore(props.userid);
+        
+        // Utilisation de la fonction de modelisation pour transformer les données
+        const chartData = modelisation(responseData, 'TodayScore');
+        
+        // Mise à jour de l'état avec les données transformées
         setData(chartData);
       } catch (error) {
         setError(error);
@@ -33,7 +27,7 @@ const TodayScores = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [props.userid]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -57,6 +51,7 @@ const TodayScores = (props) => {
     </div>
   );
 }
+
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, value } = props;
