@@ -1,11 +1,11 @@
 export default function modelisation(data, typeGraph) {
     switch (typeGraph) {
       case 'ActivityChart':
-        // Logique à ajouter si nécessaire pour le graphique d'activité
+       
         break;
         
       case 'Chart':
-        // Assurez-vous que "days" est défini
+     
         const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
         data.data.sessions = data.data.sessions.map((e) => ({
           ...e,
@@ -33,5 +33,5 @@ export default function modelisation(data, typeGraph) {
         console.log(`Sorry, we are out of ${typeGraph}.`);
         break;
     }
-    return data; // Renvoyer les données modifiées
+    return data; 
 }
