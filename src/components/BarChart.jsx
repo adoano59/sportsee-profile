@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { getActivity } from '../services/api';
+import modelisation from '../models/model1';
 import "../App.css"
 
 const ActivityChart = (props) => {
@@ -11,8 +12,12 @@ const ActivityChart = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getActivity(props.userid);
-        setData(data);
+        const responseData = await getActivity(props.userid);
+         // Utilisation de la fonction de modelisation pour transformer les données
+         const chartData = modelisation(responseData, 'ActivityChart');
+        
+         // Mise à jour de l'état avec les données transformées
+         setData(chartData);
       } catch (error) {
         setError(error);
       } finally {
@@ -21,7 +26,7 @@ const ActivityChart = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [props.userid]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
