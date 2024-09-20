@@ -1,7 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, Rectangle } from 'recharts';
 import { getAverageSession } from '../services/api';
-const days = ["L", "M", "M", "J", "V", "S", "D"]
+import modelisation from '../models/model1';
 const CustomLegend = () => {
   return <span style={{ color: '#FFFFFF' }}>Durée moyenne des sessions</span>;
 };
@@ -27,9 +28,12 @@ const Chart = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getAverageSession(props.userid);
-        data.data.sessions.map((e) => e.day = days[e.day - 1])
-        setData(data);
+        const responseData = await getAverageSession(props.userid);
+        // Utilisation de la fonction de modelisation pour transformer les données
+        const chartData = modelisation(responseData, 'Chart');
+        
+        // Mise à jour de l'état avec les données transformées
+        setData(chartData);
       } catch (error) {
         setError(error);
       } finally {
@@ -38,7 +42,7 @@ const Chart = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [props.userid]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;

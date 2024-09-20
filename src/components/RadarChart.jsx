@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import { getPerformance } from '../services/api';
+import modelisation from '../models/model1';
 
 const PerformanceChart = (props) => {
   const [data, setData] = useState(null);
@@ -10,9 +12,12 @@ const PerformanceChart = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getPerformance(props.userid);
-        data.data.data.map((e) => e.kind = data.data.kind[e.kind])
-        setData(data);
+        const responseData = await getPerformance(props.userid);
+         // Utilisation de la fonction de modelisation pour transformer les données
+         const chartData = modelisation(responseData, 'PerformanceChart');
+        
+         // Mise à jour de l'état avec les données transformées
+         setData(chartData);
       } catch (error) {
         setError(error);
       } finally {
@@ -21,7 +26,7 @@ const PerformanceChart = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [props.userid]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;

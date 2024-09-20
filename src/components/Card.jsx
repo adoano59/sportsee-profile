@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import "../styles/card.css"
 import { faFire, faDrumstickBite, faAppleWhole, faBurger } from '@fortawesome/free-solid-svg-icons';

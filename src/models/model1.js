@@ -1,8 +1,10 @@
+
 export default function modelisation(data, typeGraph) {
   switch (typeGraph) {
     case 'ActivityChart':
     break;
   case 'Chart':
+    const days = ["L", "M", "M", "J", "V", "S", "D"]
    data.data.sessions.map((e) => e.day = days[e.day - 1])
    break;
   case 'PerformanceChart':

@@ -1,3 +1,4 @@
+
 import React from 'react'
 import "../styles/banner.css"
 import { faPersonRunning, faPersonSwimming, faPersonBiking, faDumbbell } from '@fortawesome/free-solid-svg-icons';

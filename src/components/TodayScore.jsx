@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'; 
 import modelisation from '../models/model1';
 import { PieChart, Pie, Sector } from 'recharts';

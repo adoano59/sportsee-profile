@@ -1,3 +1,4 @@
+
 const realData = true
 export async function getProfil(userid) {
     if (realData) {
